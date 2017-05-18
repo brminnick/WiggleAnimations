@@ -58,7 +58,7 @@
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable-xhdpi\xamagon.png" />
-    <AndroidResource Include="Resources\anim\RotateClockwise10Degrees.xml" />
+    <AndroidResource Include="Resources\anim\WiggleAnimation.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
