@@ -17,11 +17,20 @@ namespace WiggleAnimations.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView XamagonImageView { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel XamagonLabel { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (XamagonImageView != null) {
                 XamagonImageView.Dispose ();
                 XamagonImageView = null;
+            }
+
+            if (XamagonLabel != null) {
+                XamagonLabel.Dispose ();
+                XamagonLabel = null;
             }
         }
     }

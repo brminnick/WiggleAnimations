@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Views.Animations;
 using System;
+using WiggleAnimations.Shared;
 
 namespace WiggleAnimations.Droid
 {
@@ -65,8 +66,11 @@ namespace WiggleAnimations.Droid
 
             SetContentView(Resource.Layout.Main);
 
+            var xamagonLabel = FindViewById<TextView>(Resource.Id.XamagonLabel);
             _xamagonImage = FindViewById<ImageView>(Resource.Id.XamagonImageView);
             _deleteButton = FindViewById<Button>(Resource.Id.DeleteButton);
+
+            xamagonLabel.Text = LabelConstants.AnimationLabelText;
             _deleteButton.Click += HandleDeleteButtonClick;
         }
 

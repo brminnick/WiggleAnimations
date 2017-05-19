@@ -19,7 +19,7 @@
         android:text="X"
         android:visibility="invisible" />
     <TextView
-        android:text="Tap The Xamagon"
+        android:id="@+id/XamagonLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/XamagonImageView"
