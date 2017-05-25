@@ -32,6 +32,9 @@ namespace WiggleAnimations.iOS
             XamagonImageView.AddGestureRecognizer(_xamagonTapGestureRecognizer);
             XamagonImageView.UserInteractionEnabled = true;
             XamagonLabel.Text = LabelConstants.AnimationLabelText;
+
+            DeleteButton.Hidden = true;
+            DeleteButton.Enabled = false;
         }
 
         void StartRotation(UIView view, nfloat rotationOffsetDegrees, double animationDuration)
@@ -56,11 +59,27 @@ namespace WiggleAnimations.iOS
         void HandleXamagonTapped()
         {
             if (_isAnimationInProgress)
+            {
+                DeleteButton.Hidden = true;
+                DeleteButton.Enabled = false;
+
                 EndRotation(XamagonImageView, AnimationConstants.AnimationDuration);
+            }
             else
+            {
+                DeleteButton.Hidden = false;
+                DeleteButton.Enabled = true;
+
                 StartRotation(XamagonImageView, -10, AnimationConstants.AnimationDuration);
+            }
 
             _isAnimationInProgress = !_isAnimationInProgress;
+        }
+
+        partial void DeleteButtonTappedUpInside(UIButton sender)
+        {
+            XamagonImageView.Hidden = true;
+            DeleteButton.Hidden = true;
         }
     }
 }
