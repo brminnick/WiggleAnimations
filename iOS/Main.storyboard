@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,33 +21,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xamagon.png" translatesAutoresizingMaskIntoConstraints="NO" id="5dc-2o-OD6">
-                                <rect key="frame" x="20" y="28" width="560" height="564"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3" misplaced="YES">
+                                <rect key="frame" x="186" y="695" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xamagon.png" translatesAutoresizingMaskIntoConstraints="NO" id="5dc-2o-OD6" misplaced="YES">
+                                <rect key="frame" x="157" y="318" width="100" height="100"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="CCw-Ax-6ua" appends="YES" id="JXa-il-uVR"/>
-                                </connections>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="8Hi-we-eEZ"/>
+                                    <constraint firstAttribute="width" constant="150" id="aqO-Pi-Gjd"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11" misplaced="YES">
+                                <rect key="frame" x="227" y="318" width="30" height="30"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="DeleteButtonTappedUpInside:" destination="BYZ-38-t0r" id="31" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5dc-2o-OD6" secondAttribute="bottom" constant="8" id="5jT-vn-8Kh"/>
-                            <constraint firstItem="5dc-2o-OD6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="8fx-Fb-QWn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5dc-2o-OD6" secondAttribute="trailing" id="tyJ-O7-dI1"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="5dc-2o-OD6" secondAttribute="leading" id="wrV-7e-C31"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="20" id="6"/>
+                            <constraint firstItem="5dc-2o-OD6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="22"/>
+                            <constraint firstItem="5dc-2o-OD6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25"/>
+                            <constraint firstItem="11" firstAttribute="top" secondItem="5dc-2o-OD6" secondAttribute="top" id="BaU-CL-57b"/>
+                            <constraint firstItem="3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gWh-VT-a3H"/>
+                            <constraint firstItem="11" firstAttribute="trailing" secondItem="5dc-2o-OD6" secondAttribute="trailing" id="jg3-32-MFX"/>
+                            <constraint firstItem="5dc-2o-OD6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lkZ-Wb-sYT"/>
+                            <constraint firstItem="5dc-2o-OD6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tRN-Gr-gW8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="22"/>
+                                <exclude reference="25"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="22"/>
+                                <include reference="25"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="DeleteButton" destination="11" id="name-outlet-11"/>
                         <outlet property="XamagonImageView" destination="5dc-2o-OD6" id="name-outlet-5dc-2o-OD6"/>
+                        <outlet property="XamagonLabel" destination="3" id="name-outlet-3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="CCw-Ax-6ua"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
     <resources>
-        <image name="xamagon.png" width="609" height="609"/>
+        <image name="xamagon.png" width="304.5" height="304.5"/>
     </resources>
 </document>

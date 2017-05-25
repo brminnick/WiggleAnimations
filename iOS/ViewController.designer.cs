@@ -15,13 +15,35 @@ namespace WiggleAnimations.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton DeleteButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView XamagonImageView { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel XamagonLabel { get; set; }
+
+        [Action ("DeleteButtonTappedUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void DeleteButtonTappedUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
+            if (DeleteButton != null) {
+                DeleteButton.Dispose ();
+                DeleteButton = null;
+            }
+
             if (XamagonImageView != null) {
                 XamagonImageView.Dispose ();
                 XamagonImageView = null;
+            }
+
+            if (XamagonLabel != null) {
+                XamagonLabel.Dispose ();
+                XamagonLabel = null;
             }
         }
     }

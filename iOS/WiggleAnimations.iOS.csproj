@@ -110,7 +110,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\xamagon.png" />
+    <BundleResource Include="Resources\xamagon%402x.png" />
   </ItemGroup>
+  <Import Project="..\WiggleAnimations.Shared\WiggleAnimations.Shared.projitems" Label="Shared" Condition="Exists('..\WiggleAnimations.Shared\WiggleAnimations.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
