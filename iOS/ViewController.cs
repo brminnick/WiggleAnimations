@@ -44,16 +44,16 @@ namespace WiggleAnimations.iOS
             var scale = CGAffineTransform.MakeScale(1.05f, 1.05f);
 
             InvokeOnMainThread(() =>
-                UIView.Animate(animationDuration, 0, UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat | UIViewAnimationOptions.AllowUserInteraction, () => { view.Transform = rotation; view.Transform = scale; }, null));
+                UIView.AnimateNotify(animationDuration, 0, UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat | UIViewAnimationOptions.AllowUserInteraction, () => { view.Transform = rotation; view.Transform = scale; }, null));
         }
 
         void EndRotation(UIView view, double animationDuration)
         {
-			var rotation = CGAffineTransform.MakeRotation(0);
+            var rotation = CGAffineTransform.MakeRotation(0);
             var scale = CGAffineTransform.MakeScale(1f, 1f);
-			
-            InvokeOnMainThread(() => 
-               UIView.Animate(animationDuration, 0, UIViewAnimationOptions.BeginFromCurrentState | UIViewAnimationOptions.CurveEaseOut, () => { view.Transform = rotation; view.Transform = scale; }, null));
+
+            InvokeOnMainThread(() =>
+               UIView.AnimateNotify(animationDuration, 0, UIViewAnimationOptions.BeginFromCurrentState | UIViewAnimationOptions.CurveEaseOut, () => { view.Transform = rotation; view.Transform = scale; }, null));
         }
 
         void HandleXamagonTapped()
