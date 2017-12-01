@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
 
 using Android.OS;
 using Android.App;
 using Android.Views;
 using Android.Widget;
 using Android.Views.Animations;
-using System;
+
 using WiggleAnimations.Shared;
 
 namespace WiggleAnimations.Droid
@@ -24,16 +24,10 @@ namespace WiggleAnimations.Droid
         #endregion
 
         #region Constructors
-        public MainActivity() =>
-            _gestureDetector = new GestureDetector(this);
+        public MainActivity() => _gestureDetector = new GestureDetector(this);
         #endregion
 
         #region Methods
-        public override bool OnTouchEvent(MotionEvent e)
-        {
-            return _gestureDetector.OnTouchEvent(e);
-        }
-
         public bool OnDown(MotionEvent e)
         {
             if (_isAnimationInProgress)
@@ -54,6 +48,7 @@ namespace WiggleAnimations.Droid
             return true;
         }
 
+        public override bool OnTouchEvent(MotionEvent e) => _gestureDetector.OnTouchEvent(e);
         public bool OnFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) => false;
         public void OnLongPress(MotionEvent e) { }
         public bool OnScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) => false;

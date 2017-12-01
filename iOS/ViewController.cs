@@ -13,10 +13,10 @@ namespace WiggleAnimations.iOS
         #region Constant Fields
         readonly UITapGestureRecognizer _xamagonTapGestureRecognizer;
         readonly CancellationToken _animationCancellationToken;
+		readonly CancellationTokenSource _animationCancellationTokenSource = new CancellationTokenSource();
         #endregion
 
         #region Fields 
-        CancellationTokenSource _animationCancellationTokenSource = new CancellationTokenSource();
         bool _isAnimationInProgress;
         #endregion
 
@@ -26,7 +26,6 @@ namespace WiggleAnimations.iOS
             _xamagonTapGestureRecognizer = new UITapGestureRecognizer(HandleXamagonTapped);
         }
 
-
         public override void ViewDidLoad()
         {
             XamagonImageView.AddGestureRecognizer(_xamagonTapGestureRecognizer);
@@ -35,6 +34,12 @@ namespace WiggleAnimations.iOS
 
             DeleteButton.Hidden = true;
             DeleteButton.Enabled = false;
+        }
+
+        partial void DeleteButtonTappedUpInside(UIButton sender)
+        {
+            XamagonImageView.Hidden = true;
+            DeleteButton.Hidden = true;
         }
 
         void StartRotation(UIView view, nfloat rotationOffsetDegrees, double animationDuration)
@@ -74,12 +79,6 @@ namespace WiggleAnimations.iOS
             }
 
             _isAnimationInProgress = !_isAnimationInProgress;
-        }
-
-        partial void DeleteButtonTappedUpInside(UIButton sender)
-        {
-            XamagonImageView.Hidden = true;
-            DeleteButton.Hidden = true;
         }
     }
 }
